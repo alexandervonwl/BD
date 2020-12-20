@@ -1,0 +1,6 @@
+utile pyton:
+
+1. py -3 fisier.py
+
+2. py -m pip install pygame
+
