@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Avion Nou</title>
+</head>
+<body>
+<div align="center">
+    <h1>Introduceti un nou avion</h1>
+    <br />
+    <form action="#" th:action="@{/companie/avion/save}" th:object="${avion}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Tip avion:</td>
+                <td>
+                    <select th:field="*{tip_avion}">
+                        <option value="Airbus A321-200">Airbus A321-200</option>
+                        <option value="Airbus A320-200">Airbus A320-200</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Anul Fabricarii ZZ-LLL-AA (ex. 05-IAN-19):</td>
+                <td><input type="date" th:field="*{anul_fabricarii}" /></td>
+            </tr>
+            <tr>
+                <td>Ultima Revizie ZZ-LLL-AA (ex. 05-IAN-19):</td>
+                <td><input type="date" th:field="*{ultima_revizie}" /></td>
+            </tr>
+            <tr>
+                <td>Capacitate:</td>
+                <td>
+                <select th:field="*{capacitate}">
+                    <option value="230">Airbus A321-200</option>
+                    <option value="180">Airbus A320-200</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Incarcatura Maxima:</td>
+                <td>
+                    <select th:field="*{incarcatura_maxima}">
+                        <option value="93500">Airbus A321-200</option>
+                        <option value="77000">Airbus A320-200</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Distanta Maxima:</td>
+                <td>
+                    <select th:field="*{distanta_maxima}">
+                        <option value="5700">Airbus A321-200</option>
+                        <option value="5600">Airbus A320-200</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Salvati</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

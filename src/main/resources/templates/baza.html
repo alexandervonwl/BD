@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Moldovean Airlines Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>BAZE</h1>
+    <a href="baza/nou">Introduceți o baza noua</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Nume</th>
+            <th>Cafenea</th>
+            <th>Service Mentenanta</th>
+            <th>Hotel Partener</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="baza : ${listBaza}">
+            <td th:text="${baza.nume}">Nume</td>
+            <td th:text="${baza.cafenea}">Cafenea</td>
+            <td th:text="${baza.service_mentenanta}">Service Mentenanta</td>
+            <td th:text="${baza.hotel_partener}">Hotel Partener</td>
+
+            <td>
+                <a th:href="@{'/companie/baza/edit/' + ${baza.nume}}">Editati</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/companie/baza/delete/' + ${baza.nume}}">Stergeti</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Modificare Baza</title>
+</head>
+<body>
+<div align="center">
+    <h1>Modificare Baza</h1>
+    <br />
+    <form action="#" th:action="@{/companie/baza/update}" th:object="${baza}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Nume:</td>
+                <td><input type="text" th:field="*{nume}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>Cafenea (True/False):</td>
+                <td><input type="text" th:field="*{cafenea}" /></td>
+            </tr>
+            <tr>
+                <td>Service Mentenanta (True/False):</td>
+                <td><input type="text" th:field="*{service_mentenanta}" /></td>
+            </tr>
+            <tr>
+                <td>Hotel Partener (True/False):</td>
+                <td><input type="text" th:field="*{hotel_partener}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Salvati</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

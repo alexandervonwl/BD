@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Moldovean Airlines Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>RUTE</h1>
+    <a href="ruta/nou">Introduceți o ruta noua</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Numar Ruta</th>
+            <th>Ruta</th>
+            <th>Durata</th>
+            <th>Distanta</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ruta : ${listRuta}">
+            <td th:text="${ruta.numar_ruta}">Numar Ruta</td>
+            <td th:text="${ruta.ruta}">Ruta</td>
+            <td th:text="${ruta.durata}">Durata</td>
+            <td th:text="${ruta.distanta}">Distanta</td>
+
+            <td>
+                <a th:href="@{'/companie/ruta/edit/' + ${ruta.numar_ruta}}">Editati</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/companie/ruta/delete/' + ${ruta.numar_ruta}}">Stergeti</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

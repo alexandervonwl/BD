@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Moldovean Airlines Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>AVIOANE</h1>
+    <a href="avion/nou">Introduceți un avion nou</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ultima Revizie</th>
+            <th>Anul Fabricarii</th>
+            <th>Capacitate</th>
+            <th>Încărcătura Maximă</th>
+            <th>Distanta Maximă</th>
+            <th>Tip Avion</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="avion : ${listAvion}">
+            <td th:text="${avion.avion_id}">ID</td>
+            <td th:text="${avion.ultima_revizie}">Ultima Revizie</td>
+            <td th:text="${avion.anul_fabricarii}">Anul Fabricarii</td>
+            <td th:text="${avion.capacitate}">Capacitate</td>
+            <td th:text="${avion.incarcatura_maxima}">Incarcatura Maxima</td>
+            <td th:text="${avion.distanta_maxima}">Distanta Maxima</td>
+            <td th:text="${avion.tip_avion}">tip_avion</td>
+
+           <td>
+                <a th:href="@{'/companie/avion/edit/' + ${avion.avion_id}}">Editati</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/companie/avion/delete/' + ${avion.avion_id}}">Stergeti</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

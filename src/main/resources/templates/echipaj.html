@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Moldovean Airlines Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>ECHIPAJ</h1>
+    <a href="echipaj/nou">Introduceți un echipaj nou</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID Echipaj</th>
+            <th>ID Pilot</th>
+            <th>ID Co-Pilot</th>
+            <th>ID Steward1</th>
+            <th>ID Steward2</th>
+            <th>ID Steward3</th>
+            <th>ID Steward4</th>
+            <th>ID Steward5</th>
+            <th>ID Steward6</th>
+            <th>Numar Ruta</th>
+            <th>Numar Zbor</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="echipaj : ${listEchipaj}">
+            <td th:text="${echipaj.echipaj_id}">ID Echipaj</td>
+            <td th:text="${echipaj.pilot_id}">ID Pilot</td>
+            <td th:text="${echipaj.copilot_id}">ID Co-Pilot</td>
+            <td th:text="${echipaj.steward1_id}">ID Steward1</td>
+            <td th:text="${echipaj.steward2_id}">ID Steward2</td>
+            <td th:text="${echipaj.steward3_id}">ID Steward3</td>
+            <td th:text="${echipaj.steward4_id}">ID Steward4</td>
+            <td th:text="${echipaj.steward5_id}">ID Steward5</td>
+            <td th:text="${echipaj.steward6_id}">ID Steward6</td>
+            <td th:text="${echipaj.numar_ruta}">Numar Ruta</td>
+            <td th:text="${echipaj.numar_zbor}">Numar Zbor</td>
+
+            <td>
+                <a th:href="@{'/companie/echipaj/edit/' + ${echipaj.echipaj_id}}">Editati</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/companie/echipaj/delete/' + ${echipaj.echipaj_id}}">Stergeti</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

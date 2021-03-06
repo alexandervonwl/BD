@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Echipaj Nou</title>
+</head>
+<body>
+<div align="center">
+    <h1>Introduceti un nou echipaj</h1>
+    <br />
+    <form action="#" th:action="@{/companie/echipaj/save}" th:object="${echipaj}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>ID pilot:</td>
+                <td>
+                    <select th:field="*{pilot_id}">
+                        <option th:each="pilot: ${listPilot}"
+                                th:value="${pilot.angajat_id}"
+                                th:utext="${pilot.nume} + ' ' + ${pilot.prenume}"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ID Copilot:</td>
+                <td>
+                    <select th:field="*{copilot_id}">
+                        <option th:each="copilot: ${listCoPilot}"
+                                th:value="${copilot.angajat_id}"
+                                th:utext="${copilot.nume} + ' ' + ${copilot.prenume}"/>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ID Steward1:</td>
+                <td>
+                    <select th:field="*{steward1_id}">
+                        <option th:each="steward: ${listSteward}"
+                                th:value="${steward.angajat_id}"
+                                th:utext="${steward.nume} + ' ' + ${steward.prenume}"/>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ID Steward2:</td>
+                <td>
+                    <select th:field="*{steward2_id}">
+                        <option th:each="steward: ${listSteward}"
+                                th:value="${steward.angajat_id}"
+                                th:utext="${steward.nume} + ' ' + ${steward.prenume}"/>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ID Steward3:</td>
+                <td>
+                    <select th:field="*{steward3_id}">
+                        <option th:each="steward: ${listSteward}"
+                                th:value="${steward.angajat_id}"
+                                th:utext="${steward.nume} + ' ' + ${steward.prenume}"/>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ID Steward4:</td>
+                <td>
+                    <select th:field="*{steward4_id}">
+                        <option th:each="steward: ${listSteward}"
+                                th:value="${steward.angajat_id}"
+                                th:utext="${steward.nume} + ' ' + ${steward.prenume}"/>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ID Steward5:</td>
+                <td>
+                    <select th:field="*{steward5_id}">
+                        <option value=""> -- </option>
+                        <option th:each="steward: ${listSteward}"
+                                th:value="${steward.angajat_id}"
+                                th:utext="${steward.nume} + ' ' + ${steward.prenume}"/>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ID Steward6:</td>
+                <td>
+                    <select th:field="*{steward6_id}">
+                        <option value=""> -- </option>
+                        <option th:each="steward: ${listSteward}"
+                                th:value="${steward.angajat_id}"
+                                th:utext="${steward.nume} + ' ' + ${steward.prenume}"/>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Numar Zbor:</td>
+                <td>
+                    <select th:field="*{numar_zbor}">
+                    <option th:each="zbor: ${listZbor}"
+                        th:value="${zbor.numar_zbor}"
+                        th:utext="${zbor.numar_zbor}"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Numar Ruta:</td>
+                <td>
+                    <select th:field="*{numar_ruta}">
+                        <option th:each="zbor: ${listZbor}"
+                                th:value="${zbor.numar_ruta}"
+                                th:utext="${zbor.numar_ruta}"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Salvati</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

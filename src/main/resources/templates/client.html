@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Moldovean Airlines Application</title>
+    <style>
+        div center{
+            background-image: url('avion.jpg');
+        }
+    </style>
+</head>
+<body>
+<div center align="center">
+    <h2>Alegeți dintre zborurile noastre</h2>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+        <th>Aeroport Decolare</th>
+        <th>Aeroport Aterizare</th>
+        <th>DATA</th>
+        <th>PRET Economic</th>
+        <th>PRET Business</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="zbor : ${listZbor}">
+        <td th:text="${zbor.oras_decolare}">Aeroport Decolare</td>
+        <td th:text="${zbor.oras_aterizare}">Aeroport Aterizare</td>
+        <td th:text="${zbor.ziua_ora_decolare}">Data</td>
+        <td th:text="${zbor.pret_economic_class} + ' RON'">Pret Economic</td>
+        <td th:text="${zbor.pret_business_class} + ' RON'">Pret Business</td>
+        <td>
+            <a th:href="@{'/edit/' + ${zbor.numar_zbor}}">Cumpara</a>
+            <!--&nbsp;&nbsp;&nbsp;
+            <a th:href="@{'/delete/' + ${zbor.numar_zbor}}">Delete</a>-->
+        </td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Zbor Nou</title>
+</head>
+<body>
+<div align="center">
+    <h1>Introduceti un nou zbor</h1>
+    <br />
+    <form action="#" th:action="@{/companie/zbor/save}" th:object="${zbor}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Numar Ruta 4 cifre :</td>
+                <td>
+                    <select th:field="*{numar_ruta}">
+                        <option th:each="ruta: ${listRuta}"
+                                th:value="${ruta.numar_ruta}"
+                                th:utext="${ruta.ruta}"/>
+                        </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Ziua si Ora Decolarii :</td>
+                <td><input type="datetime-local" th:field="*{ziua_ora_decolare}" /></td>
+            </tr>
+            <tr>
+                <td>Aeroport Decolare :</td>
+                <td>
+                    <select th:field="*{oras_decolare}">
+                        <option th:each="baza: ${listBaza}"
+                                th:value="${baza.nume}"
+                                th:utext="${baza.nume}"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Aeroport Aterizare 3 litere :</td>
+                <td>
+                    <select th:field="*{oras_aterizare}">
+                        <option th:each="baza: ${listBaza}"
+                                th:value="${baza.nume}"
+                                th:utext="${baza.nume}"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Escala 1:</td>
+                <td>
+                    <select th:field="*{oras_oprire1}">
+                        <option value=""> -- </option>
+                        <option th:each="baza: ${listBaza}"
+                                th:value="${baza.nume}"
+                                th:utext="${baza.nume}"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Escala 2:</td>
+                <td>
+                    <select th:field="*{oras_oprire2}">
+                        <option value=""> -- </option>
+                        <option th:each="baza: ${listBaza}"
+                                th:value="${baza.nume}"
+                                th:utext="${baza.nume}"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Numarul de membrii echipaj :</td>
+                <td><input type="text" th:field="*{numar_echipaj}" /></td>
+            </tr>
+            <tr>
+                <td>ID Avion :</td>
+                <td>
+                    <select th:field="*{avion_id}">
+                        <option th:each="avion: ${listAvion}"
+                                th:value="${avion.avion_id}"
+                                th:utext="${avion.avion_id}"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Pret Economic Class :</td>
+                <td><input type="text" th:field="*{pret_economic_class}" /></td>
+            </tr>
+            <tr>
+                <td>Pret Business Class :</td>
+                <td><input type="text" th:field="*{pret_business_class}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Salvati</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

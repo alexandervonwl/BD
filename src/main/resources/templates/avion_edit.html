@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Modificare Avion</title>
+</head>
+<body>
+<div align="center">
+    <h1>Modificare Avion</h1>
+    <br />
+    <form action="#" th:action="@{/companie/avion/update}" th:object="${avion}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>ID:</td>
+                <td><input type="text" th:field="*{avion_id}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>Tip avion:</td>
+                <td><input type="text" th:field="*{tip_avion}" /></td>
+            </tr>
+            <tr>
+                <td>Anul Fabricarii ZZ-LLL-AA (ex. 05-IAN-19):</td>
+                <td><input type="date" th:field="*{anul_fabricarii}" /></td>
+            </tr>
+            <tr>
+                <td>Ultima Revizie ZZ-LLL-AA (ex. 05-IAN-19):</td>
+                <td><input type="date" th:field="*{ultima_revizie}" /></td>
+            </tr>
+            <tr>
+                <td>Capacitate Persoane:</td>
+                <td><input type="text" th:field="*{capacitate}" /></td>
+            </tr>
+            <tr>
+                <td>Incarcatura Maxima KG:</td>
+                <td><input type="text" th:field="*{incarcatura_maxima}" /></td>
+            </tr>
+            <tr>
+                <td>Distanta Maxima KM:</td>
+                <td><input type="text" th:field="*{distanta_maxima}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Salvati</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

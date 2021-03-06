@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Angajat Nou</title>
+</head>
+<body>
+<div align="center">
+    <h1>Introduceti un nou angajat</h1>
+    <br />
+    <form action="#" th:action="@{/companie/angajat/save}" th:object="${angajat}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Nume:</td>
+                <td><input type="text" th:field="*{nume}" /></td>
+            </tr>
+            <tr>
+                <td>Prenume:</td>
+                <td><input type="text" th:field="*{prenume}" /></td>
+            </tr>
+            <tr>
+                <td>Data AN-LUNA-Ziua (ex. 1997-02-22):</td>
+                <td><input type="date" th:field="*{data_angajare}" /></td>
+            </tr>
+            <tr>
+                <td>Functie:</td>
+                <td>
+                    <select th:field="*{functie}">
+                        <option value="pilot">pilot</option>
+                        <option value="co-pilot">co-pilot</option>
+                        <option value="ceo">ceo</option>
+                        <option value="manager">manager</option>
+                        <option value="indrumator">indrumator</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Salariu:</td>
+                <td><input type="text" th:field="*{salariu}" /></td>
+            </tr>
+            <tr>
+                <td>Numar Zboruri:</td>
+                <td><input type="text" th:field="*{numar_zboruri}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Salvati</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

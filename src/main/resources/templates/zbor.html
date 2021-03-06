@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Moldovean Airlines Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>TOATE ZBORURILE</h1>
+    <a href="zbor/nou">Introduceți un zbor nou</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+
+            <th>Numar_zbor</th>
+            <th>Numar_ruta</th>
+            <th>DATA</th>
+            <th>Aeroport Decolare</th>
+            <th>Aeroport Aterizare</th>
+            <th>Aeroport Oprire1</th>
+            <th>Aeroport Oprire2</th>
+            <th>PRET Economic</th>
+            <th>PRET Business</th>
+            <th>Avion_ID</th>
+            <th>Numar_echipaj</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="zbor : ${listZbor}">
+            <td th:text="${zbor.numar_zbor}">Numar_zbor</td>
+            <td th:text="${zbor.numar_ruta}">Numar_ruta</td>
+            <td th:text="${zbor.ziua_ora_decolare}">DATA</td>
+            <td th:text="${zbor.oras_decolare}">Aeroport Decolare</td>
+            <td th:text="${zbor.oras_aterizare}">Aeroport Aterizare</td>
+            <td th:text="${zbor.oras_oprire1}">Aeroport Oprire1</td>
+            <td th:text="${zbor.oras_oprire2}">Aeroport Oprire2</td>
+            <td th:text="${zbor.pret_economic_class}">PRET Economic</td>
+            <td th:text="${zbor.pret_business_class}">PRET Business</td>
+            <td th:text="${zbor.avion_id}">Avion_ID</td>
+            <td th:text="${zbor.numar_echipaj}">Numar_echipaj</td>
+
+            <td>
+                <a th:href="@{'/companie/zbor/edit/' + ${zbor.numar_zbor}}">Editati</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/companie/zbor/delete/' + ${zbor.numar_zbor}}">Stergeti</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

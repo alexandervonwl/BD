@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Moldovean Airlines Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>ANGAJATI</h1>
+    <a href="angajat/nou">Introduceți un angajat nou</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nume</th>
+            <th>Prenume</th>
+            <th>Data Angajare</th>
+            <th>Functie</th>
+            <th>Salariu</th>
+            <th>Numar Zboruri</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="angajat : ${listAngajat}">
+            <td th:text="${angajat.angajat_id}">ID</td>
+            <td th:text="${angajat.nume}">Nume</td>
+            <td th:text="${angajat.prenume}">Prenume</td>
+            <td th:text="${angajat.data_angajare}">data_angajare</td>
+            <td th:text="${angajat.functie}">Functie</td>
+            <td th:text="${angajat.salariu}">Salariu</td>
+            <td th:text="${angajat.numar_zboruri}">Numar Zboruri</td>
+
+            <td>
+                <a th:href="@{'/companie/angajat/edit/' + ${angajat.angajat_id}}">Editati</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/companie/angajat/delete/' + ${angajat.angajat_id}}">Stergeti</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
